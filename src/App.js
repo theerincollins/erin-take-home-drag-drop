@@ -16,11 +16,15 @@ export default class App extends React.Component {
 	}
 
 	render() {
+		const circleStyle = {
+			backgroundColor: 'blue'
+		};
+
 		return (
 			<div className={'appContainer'}>
-				<Circle color={'blue'} number={1}/>
-				<Circle color={'red'} number={2}/>
-				<Circle color={'yellow'} number={3}/>
+				<Circle color={'blue'} number={1} />
+				<Circle color={'red'} number={2} />
+				<Circle color={'yellow'} number={3} />
 				<Square />
 			</div>
 		);

@@ -10,9 +10,9 @@ export default class Circle extends React.Component {
 
 	render() {
 		return (
-			<div className={'circle'}>
+			<div className={'circle'} style={{background: this.props.color}}>
 				<div className={'innerCircle'}>
-					0
+					{this.props.number}
 				</div>
 			</div>
 		);
