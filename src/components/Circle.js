@@ -20,7 +20,11 @@ export default class Circle extends React.Component {
 
 	render() {
 		return (
+<<<<<<< HEAD
 			<div className={'circle'} style={{background: this.props.color}} draggable="true" onDragStart={e => handleDrag(e, this.props.color, this.props.number)} onDragEnd={e => handleDragComplete(e)}>
+=======
+			<div className={'circle'} style={{background: this.props.color}}>
+>>>>>>> f7ef13454573a38732f5ee6d5e02836c07471954
 				<div className={'innerCircle'}>
 					{this.props.number}
 				</div>
