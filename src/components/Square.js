@@ -5,13 +5,12 @@ function handleDrag(ev) {
 	if (ev.preventDefault) {
 		ev.preventDefault();
 	}
-	console.log('handling the Drag');
 }
 
 function getColor(circleColor, squareColor) {
 	const finalColorCombo = colorCombos.filter(colorCombo =>
 		(colorCombo.color1 === circleColor || colorCombo.color2 === circleColor) && 
-			(colorCombo.color1 === squareColor || colorCombo.color2 === squareColor))
+		(colorCombo.color1 === squareColor || colorCombo.color2 === squareColor))
 	return finalColorCombo[0].finalColor;
 }
 
@@ -39,13 +38,11 @@ export default class Square extends React.Component {
 		ev.preventDefault();
 		const circleColor = ev.dataTransfer.getData('color');
 		const circleNumber = Number(ev.dataTransfer.getData('number'));
-		console.log(getColor(circleColor, this.state.color));
-		this.setState((state) => {
-			return {
+		this.setState((state) => 
+			({
 				color: getColor(circleColor, state.color),
 				number: circleNumber + state.number
-			}
-		})
+			}))
 	}
 
 	render() {

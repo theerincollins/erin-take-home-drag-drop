@@ -12,7 +12,7 @@ export default class App extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.fromChild = this.fromChild.bind(this);
+		this.updateFromCircle = this.updateFromCircle.bind(this);
 		this.state = {
 			resetInitialState: false,
 			isInitialState: true
@@ -26,8 +26,7 @@ export default class App extends React.Component {
 		})
 	}
 
-	fromChild() {
-		console.log('i am in here');
+	updateFromCircle() {
 		this.setState({
 			isInitialState: false,
 			resetInitialState: false
@@ -38,9 +37,9 @@ export default class App extends React.Component {
 
 		return (
 			<div className={'appContainer'}>
-				<Circle color={'blue'} number={1} parentCallback={this.fromChild} resetState={this.state.resetInitialState}/>
-				<Circle color={'red'} number={2} parentCallback={this.fromChild} resetState={this.state.resetInitialState}/>
-				<Circle color={'yellow'} number={3} parentCallback={this.fromChild} resetState={this.state.resetInitialState}/>
+				<Circle color={'blue'} number={1} parentCallback={this.updateFromCircle} resetState={this.state.resetInitialState}/>
+				<Circle color={'red'} number={2} parentCallback={this.updateFromCircle} resetState={this.state.resetInitialState}/>
+				<Circle color={'yellow'} number={3} parentCallback={this.updateFromCircle} resetState={this.state.resetInitialState}/>
 				<Square isInitialState={this.state.resetInitialState}/>
 				<button onClick={() => this.handleClick()} style={{visibility: this.state.isInitialState ? 'hidden' : 'visible'}}>Reset</button>
 			</div>

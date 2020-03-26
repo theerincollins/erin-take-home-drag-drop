@@ -15,7 +15,6 @@ export default class Circle extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		console.log('ba ba bing state', nextState, this.state.initialState, 'ba ba bing props', nextProps, this.props.resetState);
 		if (nextState.initialState !== this.state.initialState) {
 			return true;
 		} else if (nextProps.resetState !== this.props.resetState) {
