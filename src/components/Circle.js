@@ -1,33 +1,47 @@
 import * as React from "react";
 
 function handleDrag(ev, color, number) {
-	console.log('i can handle a drag', color, number);
 	ev.dataTransfer.setData('color', color);
 	ev.dataTransfer.setData('number', number);
-}
-
-function handleDragComplete(ev) {
-	console.log('handling the drop here');
-	ev.target.style.visibility = 'hidden';
 }
 
 export default class Circle extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			initialState: true
+		};
+	}
+
+	shouldComponentUpdate(nextProps, nextState) {
+		console.log('ba ba bing state', nextState, this.state.initialState, 'ba ba bing props', nextProps, this.props.resetState);
+		if (nextState.initialState !== this.state.initialState) {
+			return true;
+		} else if (nextProps.resetState !== this.props.resetState) {
+			this.setState({
+				initialState: true
+			})
+			return true;
+		}
+		return false;
+	}
+
+	handleDragComplete(ev) {
+		ev.target.style.visibility = 'hidden';
+		this.props.parentCallback();
+		this.setState({
+			initialState: false
+		})
 	}
 
 	render() {
 		return (
-<<<<<<< HEAD
-			<div className={'circle'} style={{background: this.props.color}} draggable="true" onDragStart={e => handleDrag(e, this.props.color, this.props.number)} onDragEnd={e => handleDragComplete(e)}>
-=======
-			<div className={'circle'} style={{background: this.props.color}}>
->>>>>>> f7ef13454573a38732f5ee6d5e02836c07471954
-				<div className={'innerCircle'}>
-					{this.props.number}
-				</div>
+			<div className={'circle'} style={{background: this.props.color, visibility: this.state.initialState || this.props.resetState ? 'visible' : 'hidden'}} draggable="true" 
+				onDragStart={e => handleDrag(e, this.props.color, this.props.number)} onDragEnd={e => this.handleDragComplete(e)}>
+					<div className={'innerCircle'}>
+						{this.props.number}
+					</div>
 			</div>
 		);
 	}

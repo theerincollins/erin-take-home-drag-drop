@@ -23,9 +23,17 @@ export default class Square extends React.Component {
 			color: 'white',
 			number: 0
 		};
-<<<<<<< HEAD
 	}
 
+	shouldComponentUpdate(nextProps) {
+		if (nextProps.isInitialState !== this.props.isInitialState && nextProps.isInitialState === true) {
+			this.setState({
+				color: 'white',
+				number: 0
+			})
+		}
+		return true;
+	}
 
 	handleDrop(ev) {
 		ev.preventDefault();
@@ -38,17 +46,12 @@ export default class Square extends React.Component {
 				number: circleNumber + state.number
 			}
 		})
-=======
->>>>>>> f7ef13454573a38732f5ee6d5e02836c07471954
 	}
 
 	render() {
 		return (
-<<<<<<< HEAD
-			<div className={'square'} onDragOver={e => handleDrag(e)} onDrop={e => this.handleDrop(e, "data")} style={{background: this.state.number >= 6 ? 'black' : this.state.color}}>
-=======
-			<div className={'square'}>
->>>>>>> f7ef13454573a38732f5ee6d5e02836c07471954
+			<div className={'square'} onDragOver={e => handleDrag(e)} onDrop={e => this.handleDrop(e)} 
+			style={{background: this.state.number >= 6 ? 'black' : this.state.color}}>
 				<div className={'innerSquare'} style={{visibility: this.state.number ? 'visible' : 'hidden'}}>
 					{this.state.number}
 				</div>
