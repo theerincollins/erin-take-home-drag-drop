@@ -41,7 +41,7 @@ export default class App extends React.Component {
 				<Circle color={'red'} number={2} parentCallback={this.updateFromCircle} resetState={this.state.resetInitialState}/>
 				<Circle color={'yellow'} number={3} parentCallback={this.updateFromCircle} resetState={this.state.resetInitialState}/>
 				<Square isInitialState={this.state.resetInitialState}/>
-				<button onClick={() => this.handleClick()} style={{visibility: this.state.isInitialState ? 'hidden' : 'visible'}}>Reset</button>
+				<button className="resetButton" onClick={() => this.handleClick()} style={{visibility: this.state.isInitialState ? 'hidden' : 'visible'}}>Reset Demo</button>
 			</div>
 		);
 	}

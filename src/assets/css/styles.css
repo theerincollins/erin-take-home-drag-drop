@@ -64,3 +64,12 @@ html, body{
 	align-items:center;
 	border:1px solid #707070;
 }
+.resetButton{
+	margin-top:auto;
+	margin-bottom:5%;
+	border-color:lightskyblue;
+	color:lightskyblue;
+	border-radius:3px;
+	width:120px;
+	height:30px;
+}
